@@ -15,9 +15,9 @@ function Footer() {
       
     </Nav>
     
-    <a href="https://www.facebook.com/noumasatti39/" rel="noopener noreferrer" target="_blank" className="fa fa-facebook  footersocial" />
-    <a href="https://www.linkedin.com/in/noumanatiq/" rel="noopener noreferrer"  target="_blank" className="fa fa-linkedin  footersocial" />
-    <a href="https://github.com/nomisatti" target="_blank"  rel="noopener noreferrer" className="fa fa-github  footersocial" />
+    <a href="https://www.facebook.com/noumasatti39/" rel="noopener noreferrer" target="_blank" ><span className="fa fa-facebook  footersocial"></span></a>
+    <a href="https://www.linkedin.com/in/noumanatiq/" rel="noopener noreferrer"  target="_blank" ><span className="fa fa-linkedin  footersocial"></span></a>
+    <a href="https://github.com/nomisatti" target="_blank"  rel="noopener noreferrer" ><span className="fa fa-github  footersocial"></span></a>
     
   </Navbar>
     </div>
