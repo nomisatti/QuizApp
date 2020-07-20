@@ -18,7 +18,7 @@ type Answers = {
 function Home() {
 
   const [settings] = useContext(SettingContext)
-  const totalQuestion = settings.totalQuestions ? settings.totalQuestions : 3;
+  const totalQuestion = settings.totalQuestions ? settings.totalQuestions : 10;
 
   const [loading, setLoading] = useState(false);
   const [number, setNumber] = useState(0);
