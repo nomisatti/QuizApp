@@ -4,13 +4,12 @@ import { Wrapper, ButtonWrapper } from './QuestionCard.styles'
 
 function QuestionsCards(props: { userAnswers: any, score: number }) {
     const percentage = (props.score / props.userAnswers.length) * 100
-    
- 
+
+
     return (
         <Wrapper>
 
             <p className={percentage > 50 ? 'score pass' : 'score fail'}> Score : {props.score}</p>
-
 
             <div>
                 {Object.keys(props.userAnswers).map(answer => {

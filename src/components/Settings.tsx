@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { Form, Button } from 'react-bootstrap';
 import { SettingContext } from '../context/SettingContext'
-import { Wrapper } from './Settings.styles'
+import { GlobalStyle, Wrapper } from './Settings.styles'
 import { Link } from 'react-router-dom'
 
 
@@ -41,9 +41,9 @@ function Settings() {
 
     }
     return (
+        <>
+        <GlobalStyle/>
         <Wrapper>
-
-
             <Form onSubmit={Submit}>
                 <Form.Group controlId="QuizTotalQuestions">
                     <Form.Label>Total Questions</Form.Label>
@@ -105,6 +105,7 @@ function Settings() {
                  </Button>
             </Form>
         </Wrapper>
+        </>
     )
 }
 
