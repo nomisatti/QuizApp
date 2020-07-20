@@ -26,9 +26,8 @@ function QuestionsCards(props:
                         userClicked = {props.userAnswer?.answer === answer}
 
                     >
-                        <button disabled={props.userAnswer} value={answer} onClick={(e) => props.callback(answer)}>
-                            <span>{answer}</span>
-                        </button>
+                        <button disabled={props.userAnswer} value={answer} dangerouslySetInnerHTML={{ __html: answer }} onClick={(e) => props.callback(answer)} />
+                        
                     </ButtonWrapper>
                 ))}
             </div>
