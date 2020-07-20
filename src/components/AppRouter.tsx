@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Setting from './Settings'
 import Header from './Header'
 import Home from './Home'
-
+import Footer from './Footer'
 function AppRouter() {
   return (
     <Router>
@@ -14,7 +14,7 @@ function AppRouter() {
 
         <Route path="Setting" element={<Setting />} />
       </Routes>
-
+      <Footer/>
     </Router>
   )
 }

@@ -26,6 +26,7 @@ export const GlobalStyle = createGlobalStyle `
 
 export const Wrapper = styled.div `
   display :flex;
+  margin-bottom :100px ;
   flex-direction: column;
   align-items: center;
 
