@@ -12,25 +12,28 @@ function QuestionsCards(props:
         questionNumber: number,
         totalQuestions: number
     }) {
-
     return (
         <Wrapper>
+            {props? (
+                <>
+                <p className="number">Question : {props.questionNumber} / {props.totalQuestions}</p>
+                <p dangerouslySetInnerHTML={{ __html: props.question }} />
+                <div>
+                    {props.answers.map(answer => (
+                        <ButtonWrapper
+                            key={answer}
+                            correct={props.userAnswer?.correctAnswer === answer}
+                            userClicked={props.userAnswer?.answer === answer}
 
-          <p className="number">Question : {props.questionNumber} / {props.totalQuestions}</p>
-            <p dangerouslySetInnerHTML={{ __html: props.question }} />
-            <div>
-                {props.answers.map(answer => (
-                    <ButtonWrapper
-                        key={answer}
-                        correct = {props.userAnswer?.correctAnswer === answer}
-                        userClicked = {props.userAnswer?.answer === answer}
+                        >
+                            <button disabled={props.userAnswer} value={answer} dangerouslySetInnerHTML={{ __html: answer }} onClick={(e) => props.callback(answer)} />
 
-                    >
-                        <button disabled={props.userAnswer} value={answer} dangerouslySetInnerHTML={{ __html: answer }} onClick={(e) => props.callback(answer)} />
-                        
-                    </ButtonWrapper>
-                ))}
-            </div>
+                        </ButtonWrapper>
+                    ))}
+                </div>
+                </>
+         ) : null}
+
         </Wrapper>
     )
 }

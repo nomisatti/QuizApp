@@ -25,7 +25,7 @@ export const FetchQuiz = async (settings: any) =>{
     const category = settings.category ? settings.category: '';
 
     console.log(typeof settings)
-    let url =`https://opentdb.com/api.php?amount=${amount}&difficulty=${difficulty}&type=${type}&&category=${category}
+    let url =`https://opentdb.com/api.php?amount=${amount}&difficulty=${difficulty}&type=${type}&category=${category}
      `;
   
         url += ``

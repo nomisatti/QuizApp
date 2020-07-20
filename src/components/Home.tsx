@@ -35,8 +35,10 @@ function Home() {
     setResult(false);
     console.log("Settings : ", settings);
     const fetchQuestions = await FetchQuiz(settings);
+ 
     console.log(fetchQuestions)
     setQuestions(fetchQuestions);
+    console.log(typeof questions)
     setScore(0);
     setUserAnswers([]);
     setNumber(0);
@@ -75,59 +77,59 @@ function Home() {
   }
 
   return (
-      <>
-        <GlobalStyle />
+    <>
+      <GlobalStyle />
 
-        <Wrapper>
-          <TopSection
-            gameOver={gameOver}
+      <Wrapper>
+        <TopSection
+          gameOver={gameOver}
+          userAnswers={userAnswers}
+          totalQuestion={totalQuestion}
+          loading={loading}
+          score={score}
+        />
+        {gameOver || userAnswers.length === totalQuestion ? (
+          <button className="start" onClick={startQuiz} >
+            {userAnswers.length === totalQuestion ? 'Start a New Quiz' : 'Start'}
+          </button>
+
+        ) : null}
+        {userAnswers.length === totalQuestion ? (
+          <button className="start" onClick={seeResults} >
+            {result ? 'Results' : 'See Results'}
+          </button>
+
+        ) : null}
+        {!loading && !gameOver && !result && questions.length >0 ? (
+          <QuestionsCards
+            question={questions[number].question}
+            answers={questions[number].answers}
+            callback={checkAnswers}
+            userAnswer={userAnswers ? userAnswers[number] : undefined}
+            questionNumber={number + 1}
+            totalQuestions={totalQuestion}
+
+          />
+        ) : null}
+   
+        {!loading && result ? (
+          <Result
             userAnswers={userAnswers}
-            totalQuestion={totalQuestion}
-            loading={loading}
             score={score}
           />
-          {gameOver || userAnswers.length === totalQuestion ? (
-            <button className="start" onClick={startQuiz} >
-              {userAnswers.length === totalQuestion ? 'Start a New Quiz' : 'Start'}
-            </button>
 
-          ) : null}
-          {userAnswers.length === totalQuestion ? (
-            <button className="start" onClick={seeResults} >
-              {result ? 'Results' : 'See Results'}
-            </button>
-
-          ) : null}
-
-          {!loading && !gameOver && !result ? (
-            <QuestionsCards
-              question={questions[number].question}
-              answers={questions[number].answers}
-              callback={checkAnswers}
-              userAnswer={userAnswers ? userAnswers[number] : undefined}
-              questionNumber={number + 1}
-              totalQuestions={totalQuestion}
-
-            />
-          ) : null}
-          {!loading && result ? (
-            <Result
-              userAnswers={userAnswers}
-              score={score}
-            />
-
-          ) : null}
+        ) : null}
 
 
 
-          {!gameOver && !loading && userAnswers.length === number + 1 && number !== totalQuestion - 1 ? (
-            <button className="next" onClick={nextQuestion}>
-              Next Question
-            </button>
-          ) : null}
+        {!gameOver && !loading && userAnswers.length === number + 1 && number !== totalQuestion - 1 ? (
+          <button className="next" onClick={nextQuestion}>
+            Next Question
+          </button>
+        ) : null}
 
-        </Wrapper>
-        </>
+      </Wrapper>
+    </>
 
   );
 }
