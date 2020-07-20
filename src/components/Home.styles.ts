@@ -42,11 +42,11 @@ export const Wrapper = styled.div `
     margin-bottom: 20px;
   }
   .pass {
-    color: black;
+    color: green;
   }
 
   .fail {
-    color:green;
+    color:red;
   }
 
   
